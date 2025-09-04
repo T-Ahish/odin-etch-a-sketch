@@ -1,5 +1,17 @@
 const containerCanvas = document.querySelector("div.container-canvas");
 
+const switchButton = document.querySelector("button.switch-button");
+
+const handleColorSwitch = (e) => {
+  if (e.srcElement.dataset.color === "black") {
+    e.srcElement.dataset.color = "rainbow";
+    e.srcElement.textContent = "Black Mode";
+  } else {
+    e.srcElement.dataset.color = "black";
+    e.srcElement.textContent = "Rainbow Mode";
+  }
+};
+
 const colorChangeHandler = (e) => {
   //Validate if Background color is already set for the element
   //If set, extract and increment the opacity by 0.2
@@ -12,7 +24,14 @@ const colorChangeHandler = (e) => {
       },${rgbaArray[2]},${parseFloat(rgbaArray[3]) + 0.2})`;
     }
   } else {
-    e.srcElement.style.backgroundColor = "rgba(0,0,0,0.2)";
+    if (switchButton.dataset.color === "black") {
+      e.srcElement.style.backgroundColor = "rgba(0,0,0,0.2)";
+    } else {
+      const randomR = Math.floor(Math.random() * 255 + 1);
+      const randomG = Math.floor(Math.random() * 255 + 1);
+      const randomB = Math.floor(Math.random() * 255 + 1);
+      e.srcElement.style.backgroundColor = `rgba(${randomR},${randomG},${randomB},0.2)`;
+    }
   }
 };
 
@@ -65,5 +84,9 @@ clearButton.addEventListener("click", clearCanvasHandler);
 const gridButton = document.querySelector("button.grid-button");
 
 gridButton.addEventListener("click", gridCreationHandler);
+
+switchButton.addEventListener("click", (e) => {
+  handleColorSwitch(e);
+});
 
 createDivs();
