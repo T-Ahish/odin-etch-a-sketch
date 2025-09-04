@@ -1,6 +1,7 @@
 const containerCanvas = document.querySelector("div.container-canvas");
-
 const switchButton = document.querySelector("button.switch-button");
+const clearButton = document.querySelector("button.clear-button");
+const gridButton = document.querySelector("button.grid-button");
 
 const handleColorSwitch = (e) => {
   if (e.srcElement.dataset.color === "black") {
@@ -40,11 +41,8 @@ const createDivs = (number = 16) => {
     for (let j = 0; j < number; j++) {
       let aDiv = document.createElement("div");
       aDiv.classList.add("solid-border", "canvas-div");
-
       containerCanvas.appendChild(aDiv);
-
       aDiv.style.flex = `0 0 calc(100% / ${number})`;
-
       aDiv.addEventListener("mouseover", (e) => colorChangeHandler(e));
     }
   }
@@ -60,18 +58,13 @@ const clearDivs = (divsToDelete) => {
 
 const gridCreationHandler = () => {
   const userChoice = parseInt(prompt("choose the desired number for grid."));
-
   if (userChoice > 100 || userChoice < 0) {
     alert("Please choose the value between 0 and 100");
     return;
   }
-
   clearDivs(containerCanvas);
-
   createDivs(userChoice ? userChoice : 16);
 };
-
-const clearButton = document.querySelector("button.clear-button");
 
 const clearCanvasHandler = () => {
   for (let i of containerCanvas.children) {
@@ -80,11 +73,7 @@ const clearCanvasHandler = () => {
 };
 
 clearButton.addEventListener("click", clearCanvasHandler);
-
-const gridButton = document.querySelector("button.grid-button");
-
 gridButton.addEventListener("click", gridCreationHandler);
-
 switchButton.addEventListener("click", (e) => {
   handleColorSwitch(e);
 });
