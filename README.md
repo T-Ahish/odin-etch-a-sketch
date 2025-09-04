@@ -10,7 +10,7 @@ The div grids changes color on the mouse hover
 
 User can get to choose between Rainbow mode and the normal mode.
 
-Rainbow mode randomizes the color on hover, while normal mode increases the contrast of the black on each hover and maxing at 10.
+Rainbow mode randomizes the color on hover, while normal mode increases the contrast of the black on each hover and maxing at 5.
 
 ### Div Grid
 
