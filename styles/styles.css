@@ -1,16 +1,43 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #f7f4ea;
+}
+
+h1 {
+  color: #b87c4c;
+  font-size: 48px;
+  margin: 25px 50px;
+}
+
+main {
+  display: flex;
+  justify-content: left;
+}
+
+div.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 50px;
+}
+
+div.button-wrapper button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #124170;
+  border: 1px solid #124170;
+  border-radius: 5px;
+}
+
 .container-canvas {
   width: 600px;
   height: 600px;
   background-color: #ccc;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0;
   border: 1px solid #000;
-}
-h1 {
-  margin: 20px 50px;
 }
 
 .solid-border {
